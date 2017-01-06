@@ -11,6 +11,8 @@ services:
         class: AppBundle\Service\QrGeneratorService
         arguments: [token]
 
-    qr_send_service:
-        class: AppBundle\Service\QrSendService
-        arguments: [text]
+    qr_sender_service:
+        class: AppBundle\Service\QrSenderService
+        arguments:
+            string: "text"
+            mailer: "@mailer"

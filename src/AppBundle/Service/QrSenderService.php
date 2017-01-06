@@ -2,11 +2,12 @@
 
 namespace AppBundle\Service;
 
-class QrSendService
+class QrSenderService
 {
-    public function __construct($text)
+    public function __construct(string $text, \Swift_Mailer $mailer)
     {
         $this->text = $text;
+        $this->mailer = $mailer;
     }
 
     public function sendEmail($text)
@@ -19,7 +20,7 @@ class QrSendService
             ->setTo('qrgen2@gmail.com')
             ->setContentType('text/html')
         ;
-        $cid = $message->embed(\Swift_Image::fromPath(preg_replace('/\s+/', '', $text).'.png'));
+        $cid = $message->embed(\Swift_Image::fromPath('images/'.preg_replace('/\s+/', '', $text).'.png'));
         $message->setBody(
             '<html>' .
             '<head></head>' .
@@ -29,6 +30,6 @@ class QrSendService
             '</html>',
             'text/html'
         );
-        $this->get('mailer')->send($message);
+        $this->mailer->send($message);
     }
 }
