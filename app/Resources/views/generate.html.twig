@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                {{ form_start(tokenForm) }}
+                    {{ form_row(tokenForm.token) }}
+
+                    <button type="submit" class="btn">Generate and send</button>
+                {{ form_end(tokenForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
