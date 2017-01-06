@@ -26,7 +26,7 @@ class QrGeneratorService
             ->setImageType(QrCode::IMAGE_TYPE_PNG)
         ;
 
-        $qrCode->save(preg_replace('/\s+/', '', $token).'.png');
+        $qrCode->save('images/'.preg_replace('/\s+/', '', $token).'.png');
 
         return $qrCode->getText();
     }

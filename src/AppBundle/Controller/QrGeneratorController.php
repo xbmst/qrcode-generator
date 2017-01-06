@@ -45,7 +45,7 @@ class QrGeneratorController extends Controller
             ->setTo('qrgen2@gmail.com')
             ->setContentType('text/html')
         ;
-        $cid = $message->embed(\Swift_Image::fromPath(preg_replace('/\s+/', '', $text).'.png'));
+        $cid = $message->embed(\Swift_Image::fromPath('images/'.(preg_replace('/\s+/', '', $text)).'.png'));
         $message->setBody(
             '<html>' .
             '<head></head>' .
