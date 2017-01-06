@@ -20,7 +20,7 @@ parameters:
 ```php
     QrGeneratorController::sendMail()
     $message
-        ->setSubject('DESIRED_SUBJECT')
+        ->setSubject('email_subject')
         ->setFrom([
             'your_gmail@gmail.com' => 'Your Name'
         ])
